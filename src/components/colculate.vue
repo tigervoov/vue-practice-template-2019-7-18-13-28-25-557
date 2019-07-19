@@ -17,9 +17,11 @@ export default {
   methods: {
       addNumber(){
           this.value++;
+          this.$emit("addNumber",1)
       },
       reduceNumber(){
           this.value--;
+          this.$emit("reduceNumber",1)
       }
   },
   

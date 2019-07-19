@@ -3,7 +3,7 @@
     <input type="text" v-model.number="counteerNum">
 
     <div v-for="index in counteerNum" v-bind:key="index">
-        <colculate @add-number="addTotal" @redece-number="reduceTotal"></colculate>
+        <colculate @add-number="addTotal" @reduce-number="reduceTotal"></colculate>
     </div>
     {{total}}
 

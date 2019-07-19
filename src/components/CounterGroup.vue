@@ -5,8 +5,8 @@
     <div v-for="index in counteerNum" v-bind:key="index">
         <colculate @add-number="addTotal" @reduce-number="reduceTotal"></colculate>
     </div>
-    {{total}}
 
+   <counter-sum :total="total"></counter-sum>
 
 </div>
     
@@ -16,10 +16,12 @@
 
 <script>
 import colculate from './colculate.vue'
+import CounterSum from './CounterSum.vue'
 export default {
   name: 'counterGroup',
   components:{
-      colculate
+      colculate,
+      CounterSum
   },
   data(){
       return{

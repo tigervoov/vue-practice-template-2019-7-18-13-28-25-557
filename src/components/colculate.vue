@@ -7,7 +7,7 @@
 </template>
 
 <script>
-
+import { mapMutations, mapGetters } from 'vuex'
 export default {
   name: 'colculate',
   data(){
@@ -16,11 +16,16 @@ export default {
       }
   },
   computed:{
-      count(){
-          return this.$store.state.counter
-      }
+    //   count(){
+    //       return this.$store.state.counter
+    //   }
+    ...mapGetters({
+      count:'getData',
+    })
+      
   },
   methods: {
+      
       addNumber(){
           this.value++;
           this.$emit("add-number",1)
@@ -30,12 +35,18 @@ export default {
           this.value--;
           this.$emit("reduce-number",1)
       },
-      add(){
-          this.$store.commit('add')
-      },
-      reduce(){
-          this.$store.commit('reduce')
-      },
+    //   add(){
+    //       this.$store.commit('add')
+    //   },
+    //   reduce(){
+    //       this.$store.commit('reduce')
+    //   },
+      ...mapMutations([
+      'add', // 将 `this.increment()` 映射为 `this.$store.commit('increment')`
+
+      // `mapMutations` 也支持载荷：
+      'reduce' // 将 `this.incrementBy(amount)` 映射为 `this.$store.commit('incrementBy', amount)`
+    ]),
   },
   
 }

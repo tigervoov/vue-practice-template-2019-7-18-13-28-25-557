@@ -10,6 +10,11 @@ const store=new Vuex.Store({
   state:{
     counter:0
   },
+  getters:{
+    getData:state=>{
+      return state.counter
+    }
+  },
   mutations:{
     add(state){
       state.counter++
